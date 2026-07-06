@@ -1,20 +1,16 @@
-# CV Cakra Duta Bangsa - Landing Page
+# Landing Page Profil Perusahaan
 
-Website profil hukum untuk CV Cakra Duta Bangsa.
+Website landing page dinamis untuk profil perusahaan. Semua data diatur dari satu file `config.js`.
 
 ## 🚀 Deploy ke Vercel via GitHub
 
-### Step 1: Buat Repository GitHub
+### Step 1: Push ke GitHub
 
 ```bash
-# Inisialisasi git
 cd ~/cakra-duta-bangsa
-git init
 git add .
-git commit -m "Initial commit - Landing page CV Cakra Duta Bangsa"
-
-# Buat repository di GitHub (via CLI atau web)
-gh repo create cakra-duta-bangsa --public --source=. --push
+git commit -m "Dynamic landing page"
+git push origin master
 ```
 
 ### Step 2: Deploy ke Vercel
@@ -26,49 +22,104 @@ gh repo create cakra-duta-bangsa --public --source=. --push
 5. Klik **"Deploy"**
 6. Selesai! Website sudah live 🎉
 
-### Custom Domain (Opsional)
-
-1. Di Vercel Dashboard → Project → Settings → Domains
-2. Masukkan domain yang diinginkan (misal: `cakradutabangsa.com`)
-3. Ikuti instruksi DNS yang diberikan Vercel
-
 ## 📁 Struktur File
 
 ```
 cakra-duta-bangsa/
-├── index.html      # Halaman utama
-├── logo.svg        # Logo perusahaan (SVG tajam)
+├── index.html      # Template utama
+├── config.js       # ⭐ SEMUA DATA DI SINI (edit ini saja!)
+├── app.js          # Logika dinamis
+├── logo.svg        # Logo perusahaan
 └── README.md       # Dokumentasi ini
+```
+
+## ✏️ Cara Edit Data
+
+**Cukup edit file `config.js`!** Semua data website diambil dari sana.
+
+### Contoh Edit:
+
+```javascript
+// Ganti nama perusahaan
+company: {
+    name: "PT Contoh Indonesia",
+    tagline: "Solusi Terbaik untuk Anda",
+    description: "Deskripsi perusahaan..."
+}
+
+// Ganti kontak
+contact: {
+    phone: "08123456789",
+    whatsapp: "628123456789", // Format internasional
+    email: "info@contoh.com"
+}
+
+// Tambah layanan
+services: [
+    {
+        title: "Layanan Baru",
+        description: "Deskripsi layanan baru",
+        icon: "scale" // scale, building, home, users, file, phone
+    }
+]
+
+// Tambah anggota tim
+team: [
+    {
+        name: "Nama Baru",
+        position: "Jabatan",
+        description: "Deskripsi",
+        initial: "N" // Huruf awal untuk avatar
+    }
+]
 ```
 
 ## 🎨 Fitur
 
-- ✅ Responsive (mobile-first)
-- ✅ Dark theme profesional (navy + gold)
-- ✅ Logo "Panah Cakra" (SVG)
-- ✅ Animasi scroll (fade-in)
-- ✅ Form konsultasi → WhatsApp
-- ✅ Tombol WhatsApp floating
-- ✅ Section: Tentang, Layanan, Tim, Kontak
-- ✅ SEO meta tags
+- ✅ **100% Dinamis** - Semua data dari config.js
+- ✅ **Responsive** - Mobile & Desktop
+- ✅ **Dark Theme** - Navy + Gold profesional
+- ✅ **Logo SVG** - Tajam di semua ukuran
+- ✅ **Modal Detail** - Klik layanan/tim untuk detail
+- ✅ **Form → WhatsApp** - Langsung ke chat WA
+- ✅ **Smooth Scroll** - Navigasi halus
+- ✅ **Animasi** - Fade-in saat scroll
+- ✅ **Mobile Menu** - Hamburger menu di HP
+- ✅ **Testimoni** - Rating bintang
+- ✅ **Social Media** - Instagram, FB, LinkedIn, dll
 
-## 🛠️ Edit Konten
+## 📱 Responsive
 
-### Ganti Nomor WhatsApp
+| Elemen | HP | Tablet | Desktop |
+|--------|-----|--------|---------|
+| Navbar | Hamburger | Full menu | Full menu |
+| Hero | Stack | Side-by-side | Side-by-side |
+| Layanan | 1 kolom | 2 kolom | 3 kolom |
+| Tim | 1 kolom | 2 kolom | 4 kolom |
+| Kontak | Stack | 2 kolom | 2 kolom |
 
-Cari `6281330102647` di `index.html` dan ganti dengan nomor yang diinginkan.
+## 🔗 WhatsApp Integration
 
-### Tambah/Edit Layanan
+Form otomatis mengirim pesan ke WhatsApp dengan format:
 
-Cari section `<!-- Layanan -->` dan duplikat card yang ada.
+```
+*KONSULTASI*
 
-### Edit Profil Tim
+Nama: [Input User]
+No HP: [Input User]
+Layanan: [Pilihan]
+Pesan: [Input User]
+```
 
-Cari section `<!-- Tim Kami -->` dan ubah data sesuai kebutuhan.
+## 🛠️ Troubleshooting
 
-## 📞 Kontak
+| Masalah | Solusi |
+|---------|--------|
+| Data tidak muncul | Cek syntax di config.js |
+| WA tidak buka | Pastikan format `628xxx` (tanpa +) |
+| Logo tidak tampil | Pastikan logo.svg ada di folder |
+| Animasi tidak jalan | Pastikan app.js ter-load |
 
-- **Alamat:** Jl. Panggreman 1-B No.13, Kel. Kranggan, Kec. Kranggan, Kota Mojokerto, Jawa Timur
-- **Telepon:** 0813-3010-2647
-- **Email:** cvcakradutabangsa@gmail.com
-- **NIB:** 2809210023601
+## 📞 Support
+
+Edit `config.js` untuk mengubah semua konten website.
